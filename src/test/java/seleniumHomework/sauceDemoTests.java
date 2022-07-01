@@ -1,8 +1,6 @@
 package seleniumHomework;
 
 import lombok.extern.log4j.Log4j;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -74,17 +72,8 @@ public class sauceDemoTests {
         checkoutpage = new CheckoutPage(driver);
 
         wait.until(ExpectedConditions.visibilityOf(checkoutpage.getFirstName()));
-        checkoutpage.clickContinueButton();
-        wait.until(ExpectedConditions.visibilityOf(checkoutpage.getErrorFirst()));
-        Assert.assertEquals(checkoutpage.getErrorFirst().isDisplayed(),true); //nočekojam ka first name ir obligāts
         checkoutpage.setFirstName("Janis");
-        checkoutpage.clickContinueButton();
-        wait.until(ExpectedConditions.visibilityOf(checkoutpage.getErrorSecond()));
-        Assert.assertEquals(checkoutpage.getErrorSecond().isDisplayed(),true);         //nočekojam ka last name ir obligāts
         checkoutpage.setLastName("Doe");
-        checkoutpage.clickContinueButton();
-        wait.until(ExpectedConditions.visibilityOf(checkoutpage.getErrorThird()));
-        Assert.assertEquals(checkoutpage.getErrorThird().isDisplayed(),true);         //nočekojam ka Postal code ir obligāts
         checkoutpage.setPostalCode("111-222");
         checkoutpage.clickContinueButton();
 
@@ -100,6 +89,43 @@ public class sauceDemoTests {
         checkoutsuccesspage.clickFinishButton();
 
         System.out.println(" ");
+    }
+
+    @Test
+    public void mandatoryFieldTest() {
+        driver.get(LOCAL_FILE);
+        loginpage = new LoginPage(driver);
+        loginpage.setUsername("standard_user");
+        loginpage.setPassword("secret_sauce");
+        loginpage.clickLoginButton();
+
+        inventorypage = new InventoryPage(driver);
+        wait.until(ExpectedConditions.visibilityOf(inventorypage.getOnesieButton()));
+        Assert.assertEquals(inventorypage.getOnesieButton().isDisplayed(), true);  //te pārbauda, ka varam atrast inventory page elementu
+        inventorypage.clickOnesieButton();
+        inventorypage.clickCartButton();
+
+        cartpage = new CartPage(driver);
+        wait.until(ExpectedConditions.visibilityOf(cartpage.getOnesieItem()));
+        Assert.assertEquals(cartpage.getOnesieItem().isDisplayed(), true);  //te pārbauda, ka varam atrast cart page pasūtīto Onesie
+        cartpage.clickChecoutButton();
+
+        checkoutpage = new CheckoutPage(driver);
+
+        wait.until(ExpectedConditions.visibilityOf(checkoutpage.getFirstName()));
+        checkoutpage.clickContinueButton();
+        wait.until(ExpectedConditions.visibilityOf(checkoutpage.getErrorFirst()));
+        Assert.assertEquals(checkoutpage.getErrorFirst().isDisplayed(), true); //nočekojam ka first name ir obligāts
+        checkoutpage.setFirstName("Janis");
+        checkoutpage.clickContinueButton();
+        wait.until(ExpectedConditions.visibilityOf(checkoutpage.getErrorSecond()));
+        Assert.assertEquals(checkoutpage.getErrorSecond().isDisplayed(), true);         //nočekojam ka last name ir obligāts
+        checkoutpage.setLastName("Doe");
+        checkoutpage.clickContinueButton();
+        wait.until(ExpectedConditions.visibilityOf(checkoutpage.getErrorThird()));
+        Assert.assertEquals(checkoutpage.getErrorThird().isDisplayed(), true);         //nočekojam ka Postal code ir obligāts
+        checkoutpage.setPostalCode("111-222");
+        checkoutpage.clickContinueButton();
     }
 
 
