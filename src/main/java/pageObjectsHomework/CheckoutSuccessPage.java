@@ -6,15 +6,15 @@ import org.openqa.selenium.WebElement;
 
 public class CheckoutSuccessPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public CheckoutSuccessPage (WebDriver driver){
         this.driver = driver;
 
     }
 
-    private By successHeader = By.className("header_secondary_container");
-    private By backButton = By.id("back-to-products");
+    private final By successHeader = By.className("header_secondary_container");
+    private final By backButton = By.id("back-to-products");
 
 
     public void clickFinishButton(){

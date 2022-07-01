@@ -5,15 +5,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class CartPage {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public CartPage (WebDriver driver){
         this.driver = driver;
 
     }
 
-    private By cartOnesie = By.xpath("//div[contains(@class, 'inventory_item_name') and contains(., 'Sauce Labs Onesie')]");
-    private By checkout = By.id("checkout");
+    private final By cartOnesie = By.xpath("//div[contains(@class, 'inventory_item_name') and contains(., 'Sauce Labs Onesie')]");
+    private final By checkout = By.id("checkout");
 
     public void clickChecoutButton(){
         driver.findElement(checkout).click();

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class CheckoutOverviewPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public CheckoutOverviewPage (WebDriver driver){
         this.driver = driver;
@@ -14,8 +14,8 @@ public class CheckoutOverviewPage {
     }
 
 
-    private By finishOnesie = By.xpath("//div[contains(@class, 'inventory_item_name') and contains(., 'Sauce Labs Onesie')]");
-    private By finishButton = By.id("finish");
+    private final By finishOnesie = By.xpath("//div[contains(@class, 'inventory_item_name') and contains(., 'Sauce Labs Onesie')]");
+    private final By finishButton = By.id("finish");
 
 
     public void clickFinishButton(){

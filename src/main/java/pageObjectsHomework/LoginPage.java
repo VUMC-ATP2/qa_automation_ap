@@ -9,16 +9,16 @@ import java.util.List;
 
 public class LoginPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public LoginPage (WebDriver driver){
         this.driver = driver;
 
     }
 
-    private By usernameField = By.id("user-name");
-    private By passwordField = By.id("password");
-    private By login_button = By.id("login-button");
+    private final By usernameField = By.id("user-name");
+    private final By passwordField = By.id("password");
+    private final By login_button = By.id("login-button");
 
 
     public void setUsername(String name){

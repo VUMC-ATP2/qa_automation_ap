@@ -6,19 +6,19 @@ import org.openqa.selenium.WebElement;
 
 public class CheckoutPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public CheckoutPage (WebDriver driver){
         this.driver = driver;
 
     }
-    private By firstName = By.id("first-name");
-    private By lastName = By.id("last-name");
-    private By postalCode = By.id("postal-code");
-    private By continueButton = By.id("continue");
-    private By errorMessageFirst = By.xpath("//h3[contains(@data-test, 'error') and contains(., 'Error: First Name is required')]");
-    private By errorMessageSecond = By.xpath("//h3[contains(@data-test, 'error') and contains(., 'Error: Last Name is required')]");
-    private By errorMessageThird = By.xpath("//h3[contains(@data-test, 'error') and contains(., 'Error: Postal Code is required')]");
+    private final By firstName = By.id("first-name");
+    private final By lastName = By.id("last-name");
+    private final By postalCode = By.id("postal-code");
+    private final By continueButton = By.id("continue");
+    private final By errorMessageFirst = By.xpath("//h3[contains(@data-test, 'error') and contains(., 'Error: First Name is required')]");
+    private final By errorMessageSecond = By.xpath("//h3[contains(@data-test, 'error') and contains(., 'Error: Last Name is required')]");
+    private final By errorMessageThird = By.xpath("//h3[contains(@data-test, 'error') and contains(., 'Error: Postal Code is required')]");
 
     public void clickContinueButton(){
         driver.findElement(continueButton).click();

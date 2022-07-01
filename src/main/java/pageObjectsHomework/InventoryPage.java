@@ -8,16 +8,16 @@ import org.openqa.selenium.support.ui.Select;
 
 public class InventoryPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public InventoryPage (WebDriver driver){
         this.driver = driver;
 
     }
 
-    private By onsieLink = By.id("item_2_title_link");
-    private By cartButton = By.id("shopping_cart_container");
-    private By onesieButton = By.id("add-to-cart-sauce-labs-onesie");
+    private final By onsieLink = By.id("item_2_title_link");
+    private final By cartButton = By.id("shopping_cart_container");
+    private final By onesieButton = By.id("add-to-cart-sauce-labs-onesie");
 
 
     public void clickOnesieButton(){

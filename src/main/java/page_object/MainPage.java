@@ -9,23 +9,23 @@ import java.util.List;
 
 public class MainPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public MainPage (WebDriver driver){
         this.driver = driver;
 
     }
 
-    private By firstNameField = By.id("fNameID");
-    private By lastNameField = By.id("lNameID");
-    private By aboutMe = By.id("aboutMeID");
-    private By checkData = By.id("checkDataID");
-    private By checkBox = By.xpath("//input[@id='studentID']");
+    private final By firstNameField = By.id("fNameID");
+    private final By lastNameField = By.id("lNameID");
+    private final By aboutMe = By.id("aboutMeID");
+    private final By checkData = By.id("checkDataID");
+    private final By checkBox = By.xpath("//input[@id='studentID']");
     //input[@id="studentID"]
-    private By universities = By.id("universitiesID");
-    private By color = By.id("colorsID");
-    private By valoda = By.id("javaID");
-    private By vissIrOk = By.id("checkDataResultID");
+    private final By universities = By.id("universitiesID");
+    private final By color = By.id("colorsID");
+    private final By valoda = By.id("javaID");
+    private final By vissIrOk = By.id("checkDataResultID");
 
 
 
